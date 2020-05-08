@@ -1,0 +1,6 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -62,3 +62,4 @@
+ OfficialInsaneProject/Assets/BayatGames/
+ OfficialInsaneProject/Assets/Tiles/
+ OfficialInsaneProject/Assets/Script/2DPlatformerController/ProjectSettings/
++OfficialInsaneProject/Assets/Script/2DPlatformerController/Assets/2DPlatformer/

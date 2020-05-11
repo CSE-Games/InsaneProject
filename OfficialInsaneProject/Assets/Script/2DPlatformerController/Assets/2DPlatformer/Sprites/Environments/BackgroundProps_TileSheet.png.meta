@@ -1,18 +1,12 @@
 fileFormatVersion: 2
 guid: fa5c68e8557cdb64aa3e530d06f1f470
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: BackgroundProps_TileSheet_0
-  - first:
-      213: 21300002
-    second: BackgroundProps_TileSheet_1
-  - first:
-      213: 21300004
-    second: BackgroundProps_TileSheet_2
+  fileIDToRecycleName:
+    21300000: BackgroundProps_TileSheet_0
+    21300002: BackgroundProps_TileSheet_1
+    21300004: BackgroundProps_TileSheet_2
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -66,9 +60,8 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -79,7 +72,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -99,7 +91,6 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 02305410000000000800000000000000
-      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -120,7 +111,6 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 22305410000000000800000000000000
-      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -141,7 +131,6 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 42305410000000000800000000000000
-      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -150,12 +139,10 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 
-    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

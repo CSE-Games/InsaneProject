@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20d00bf07736d254fb471a26ae2e4160
+guid: 876a37f41cf1f124cb125a3207083dd8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3320800275914529223
-    second: myrDownJump0005_0
+      213: -7361085514102746274
+    second: New Game Button_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -46,8 +46,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.26316246, y: 0.3837823}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -60,7 +60,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -90,13 +90,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: myrDownJump0005_0
+      name: New Game Button_0
       rect:
         serializedVersion: 2
-        x: 160
-        y: 103
-        width: 213
-        height: 193
+        x: 886
+        y: 324
+        width: 604
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,8 +104,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93668105eb52ae1d0800000000000000
-      internalID: -3320800275914529223
+      spriteID: e53d1a2c9bb28d990800000000000000
+      internalID: -7361085514102746274
       vertices: []
       indices: 
       edges: []

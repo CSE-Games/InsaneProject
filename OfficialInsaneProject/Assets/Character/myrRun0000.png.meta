@@ -8,8 +8,11 @@ TextureImporter:
   - first:
       213: 5114950470362506029
     second: myrRun0000_0
+  - first:
+      213: -1151350320622878843
+    second: myrRun0000_0
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +66,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -112,14 +116,14 @@ TextureImporter:
         width: 241
         height: 176
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41785b3db6ced354da3f18fc5fabd198
-      internalID: 5114950470362506029
+      spriteID: 58fbd37cbf49500f0800000000000000
+      internalID: -1151350320622878843
       vertices: []
       indices: 
       edges: []

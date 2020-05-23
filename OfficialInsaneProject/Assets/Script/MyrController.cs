@@ -22,6 +22,16 @@ public class MyrController : MonoBehaviour
     private Animator anime;
     private float canJump = 0f;
     public float jumpDelay;
+
+    public Transform attackPos;
+    public float attackRange;
+    public LayerMask attackable;
+    public int damage;
+    private float canAttack = 0f;
+    public float attackDelay;
+
+    public int health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +39,22 @@ public class MyrController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        
+        Physics.IgnoreLayerCollision(8, 10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            GameObject canvas = GameObject.Find("Canvas");
+            canvas.GetComponent<Enabling>().enable(canvas.transform.GetChild(0).gameObject);
+            canvas.GetComponent<Enabling>().enable(canvas.transform.GetChild(2).gameObject);
+            canvas.transform.GetChild(2).gameObject.GetComponent<Fading>().Fade();
+        }
+
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             IsGrounded = true;
         }
@@ -78,10 +97,48 @@ public class MyrController : MonoBehaviour
             anime.SetTrigger("landing");
         }
 
-        /*if(IsGrounded)
+        //attacking part
+        if (Input.GetKey(KeyCode.Return) && Time.time > canAttack && IsGrounded)
         {
-            anime.SetBool("goingDown", false);
-        }*/
+            anime.SetBool("attacking", true);
+            canAttack = Time.time + attackDelay;
+
+            Collider2D[] attackables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, attackable);
+            for (int i = 0; i < attackables.Length; i++)
+            {
+                EnemyPatrol enemy = attackables[i].GetComponent<EnemyPatrol>();
+                if (enemy != null) { enemy.takeDamage(damage); }
+            }
+        }
+        else
+        {
+            anime.SetBool("attacking", false);
+        }
+
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            Debug.Log("aaa");
+            //gameObject.GetComponent<Rigidbody2D>().AddForce( Vector2.left * 200, ForceMode2D.Impulse);
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        healthUI health_ui = GameObject.Find("Health").GetComponent<healthUI>();
+        health_ui.loseLife(health - 1);
+        health -= damage;
         
-    }   
+    }
 }
+

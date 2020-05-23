@@ -7,6 +7,7 @@ public class Fading : MonoBehaviour
 {
     public bool isFaded = false;
     public GameObject gb;
+    public float alpha = 1f;
     public float Duration = 0.4f;
     public void Fade()
     {
@@ -14,18 +15,25 @@ public class Fading : MonoBehaviour
         //var button = GetComponent<Button>();
 
         //Toggle the end value depending on the faded state ( from 1 to 0)
-        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, isFaded ? 1 : 0));
+        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, isFaded ? alpha : 0));
 
         //Toggle the faded state
         isFaded = !isFaded;
-        if(isFaded)
+        try
         {
-            gb.SetActive(false);
-        }
-        else
+            if (isFaded)
+            {
+                gb.SetActive(false);
+            }
+            else
+            {
+                gb.SetActive(true);
+            }
+        } catch(UnassignedReferenceException e)
         {
-            gb.SetActive(true);
+            
         }
+        
     }
     public IEnumerator DoFade(CanvasGroup canvGroup, float start, float end)//Runto complition beforex
     {

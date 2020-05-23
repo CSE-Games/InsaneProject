@@ -9,4 +9,9 @@ public class Enabling : MonoBehaviour
     {
         gb.SetActive(true);
     }
+
+    public void disable(GameObject gb)
+    {
+        gb.SetActive(false);
+    }
 }

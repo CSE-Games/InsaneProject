@@ -17,6 +17,10 @@ public class EnemyPatrol : MonoBehaviour
 
     private float dazedTime;
     public float startDazedTime;
+
+    private float canAttack = 0f;
+    public float attackDelay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +30,8 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health<=0)
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        if (health<=0)
         {
             Destroy(gameObject);
         }
@@ -40,7 +45,7 @@ public class EnemyPatrol : MonoBehaviour
             speed = 0;
             dazedTime -= Time.deltaTime;
         }
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
 
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
@@ -49,7 +54,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             if(movingLeft == true)
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
+                transform.eulerAngles = new Vector3(0, 180, 0);
                 movingLeft = false;
             }
             else
@@ -58,6 +63,15 @@ public class EnemyPatrol : MonoBehaviour
                 movingLeft = true;
             }
         }
+        
+        if(obstacleInfo.collider == true && obstacleInfo.collider.gameObject.tag.Equals("Player") && Time.time>canAttack)
+        {
+            MyrController player = obstacleInfo.collider.gameObject.GetComponent<MyrController>();
+            player.takeDamage(1);
+            canAttack = Time.time + attackDelay;
+
+        }
+
     }
 
     public void takeDamage(int damage)
@@ -66,5 +80,6 @@ public class EnemyPatrol : MonoBehaviour
         count++;
         health -= damage;
         Debug.Log("Damage Taken! "+count);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 }

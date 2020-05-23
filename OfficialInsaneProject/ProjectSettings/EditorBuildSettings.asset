@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1 with Platforms.unity
     guid: 2339d256025d229429a9800403e7b6c8
+  - enabled: 1
+    path: Assets/Scenes/Opening Scene (Forest Scene).unity
+    guid: 08756bb1cb3f14d469bbf518049e5546
+  - enabled: 1
+    path: Assets/Scenes/Opening Texts.unity
+    guid: 36bd80295775372419c54f7bac6c98c9
   m_configObjects: {}

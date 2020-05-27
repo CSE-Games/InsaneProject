@@ -21,6 +21,8 @@ public class EnemyPatrol : MonoBehaviour
     private float canAttack = 0f;
     public float attackDelay;
 
+    public GameObject destroyEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class EnemyPatrol : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         if (health<=0)
         {
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

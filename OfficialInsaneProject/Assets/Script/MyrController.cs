@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,12 +26,24 @@ public class MyrController : MonoBehaviour
 
     public Transform attackPos;
     public float attackRange;
-    public LayerMask attackable;
+    //public LayerMask attackable;
     public int damage;
     private float canAttack = 0f;
     public float attackDelay;
 
     public int health;
+
+    //wall jump variable
+    public LayerMask ground;
+    public float canWallSlide;
+    public float wallSlideSpeed;
+    //private float canWallJump = 0f;
+
+    float rayDistance = 0.5f;
+    bool facingRight = true;
+    bool hitWall;
+    bool isWallSliding = false;
+    float currentYPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +51,7 @@ public class MyrController : MonoBehaviour
         anime = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
 
         Physics.IgnoreLayerCollision(8, 10);
     }
@@ -57,21 +71,23 @@ public class MyrController : MonoBehaviour
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             IsGrounded = true;
+            currentYPosition = transform.position.y;
         }
         else
         {
-
             IsGrounded = false;
         }
         if (Input.GetKey("d"))
         {
             rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
+            facingRight = true;
             spriteRenderer.flipX = false;
             anime.SetBool("isRunning", true);
         }
         else if (Input.GetKey("a"))
         {
             rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
+            facingRight = false;
             spriteRenderer.flipX = true;
             anime.SetBool("isRunning", true);
         }
@@ -80,7 +96,9 @@ public class MyrController : MonoBehaviour
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             anime.SetBool("isRunning", false);
         }
-        if (Input.GetKey("space") && IsGrounded && Time.time > canJump)
+
+        //jumping part
+        if ((Input.GetKey("space") && IsGrounded && Time.time > canJump) || (Input.GetKey("space") && isWallSliding))
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
             canJump = Time.time + jumpDelay;
@@ -103,11 +121,19 @@ public class MyrController : MonoBehaviour
             anime.SetBool("attacking", true);
             canAttack = Time.time + attackDelay;
 
-            Collider2D[] attackables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, attackable);
+            Collider2D[] attackables = Physics2D.OverlapCircleAll(attackPos.position, attackRange);
             for (int i = 0; i < attackables.Length; i++)
             {
-                EnemyPatrol enemy = attackables[i].GetComponent<EnemyPatrol>();
-                if (enemy != null) { enemy.takeDamage(damage); }
+                if(attackables[i].CompareTag("Enemy"))
+                {
+                    EnemyPatrol enemy = attackables[i].GetComponent<EnemyPatrol>();
+                    if (enemy != null) { enemy.takeDamage(damage); }
+                }
+                
+                if (attackables[i].CompareTag("Breakables"))
+                {
+                    attackables[i].GetComponent<breakable>().health -= 1;
+                }
             }
         }
         else
@@ -115,22 +141,40 @@ public class MyrController : MonoBehaviour
             anime.SetBool("attacking", false);
         }
 
+
+
+        if(facingRight)
+        {
+            hitWall = Physics2D.Raycast(transform.position, new Vector2(rayDistance, 0), rayDistance, ground);
+        }
+        else
+        {
+            hitWall = Physics2D.Raycast(transform.position, new Vector2(-rayDistance, 0), rayDistance, ground);
+        }
+
+
+        if (hitWall && !IsGrounded && Math.Abs(transform.position.y - currentYPosition) >= canWallSlide)
+        {
+            isWallSliding = true;
+            //canJump = Time.time + jumpDelay;
+        } else
+        {
+            isWallSliding = false;
+        }
+
+        if(isWallSliding)
+        {
+            rb2d.velocity = new Vector2(0, -wallSlideSpeed);
+            //Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * 1, wallHopDirection.y * wallHopForce);
+            //rb2d.AddForce(forceToAdd, ForceMode2D.Impulse);
+
+        }
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag.Equals("Enemy"))
-        {
-            Debug.Log("aaa");
-            //gameObject.GetComponent<Rigidbody2D>().AddForce( Vector2.left * 200, ForceMode2D.Impulse);
-        }
     }
 
     public void takeDamage(int damage)

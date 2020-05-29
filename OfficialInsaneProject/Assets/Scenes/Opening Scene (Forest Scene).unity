@@ -1100,12 +1100,14 @@ MonoBehaviour:
   jumpDelay: 0
   attackPos: {fileID: 0}
   attackRange: 0
-  attackable:
-    serializedVersion: 2
-    m_Bits: 0
   damage: 0
   attackDelay: 0
   health: 3
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  canWallSlide: 0
+  wallSlideSpeed: 0
 --- !u!50 &1378829047
 Rigidbody2D:
   serializedVersion: 4
@@ -1375,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc87ad3ae17a974eb820e3894d834bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Level 1 with Platforms
+  scene: Level 1
 --- !u!61 &1728296140
 BoxCollider2D:
   m_ObjectHideFlags: 0

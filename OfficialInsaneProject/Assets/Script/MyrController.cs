@@ -10,6 +10,7 @@ public class MyrController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     bool IsGrounded;
+    bool offGround;
 
     [SerializeField]
     Transform groundCheck;
@@ -26,7 +27,7 @@ public class MyrController : MonoBehaviour
 
     public Transform attackPos;
     public float attackRange;
-    //public LayerMask attackable;
+    public LayerMask attackable;
     public int damage;
     private float canAttack = 0f;
     public float attackDelay;
@@ -34,24 +35,35 @@ public class MyrController : MonoBehaviour
     public int health;
 
     //wall jump variable
-    public LayerMask ground;
+    public LayerMask wall;
     public float canWallSlide;
     public float wallSlideSpeed;
     //private float canWallJump = 0f;
-
     float rayDistance = 0.5f;
     bool facingRight = true;
     bool hitWall;
     bool isWallSliding = false;
     float currentYPosition;
 
+    //dash variables
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    private int dashDirection;
+    public GameObject dashEffectLeft;
+    public GameObject dashEffectRight;
+    public Transform effectPos;
+
+
+    SoundEffects sound;
     // Start is called before the first frame update
     void Start()
     {
         anime = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        dashTime = startDashTime;
+        sound = GameObject.Find("Sound Effects").GetComponent<SoundEffects>();
 
         Physics.IgnoreLayerCollision(8, 10);
     }
@@ -76,19 +88,22 @@ public class MyrController : MonoBehaviour
         else
         {
             IsGrounded = false;
+            offGround = true;
         }
         if (Input.GetKey("d"))
         {
             rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
             facingRight = true;
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
+            transform.eulerAngles = new Vector3(0, 0, 0);
             anime.SetBool("isRunning", true);
         }
         else if (Input.GetKey("a"))
         {
             rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
             facingRight = false;
-            spriteRenderer.flipX = true;
+            //spriteRenderer.flipX = true;
+            transform.eulerAngles = new Vector3(0, 180, 0);
             anime.SetBool("isRunning", true);
         }
         else
@@ -103,6 +118,7 @@ public class MyrController : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
             canJump = Time.time + jumpDelay;
             anime.SetTrigger("takeOff");
+            sound.playSound("jump");
         }
 
         if(rb2d.velocity.y<=0 && !IsGrounded)
@@ -113,17 +129,24 @@ public class MyrController : MonoBehaviour
         {
             anime.SetBool("goingDown", false);
             anime.SetTrigger("landing");
+            if(offGround && IsGrounded)
+            {
+                sound.playSound("land");
+                offGround = false;
+            }
+                
         }
 
         //attacking part
-        if (Input.GetKey(KeyCode.Return) && Time.time > canAttack && IsGrounded)
+        if (Input.GetKeyDown(KeyCode.Return) && Time.time > canAttack && dashDirection == 0)
         {
             anime.SetBool("attacking", true);
             canAttack = Time.time + attackDelay;
 
-            Collider2D[] attackables = Physics2D.OverlapCircleAll(attackPos.position, attackRange);
+            Collider2D[] attackables = Physics2D.OverlapCircleAll(attackPos.position, attackRange, attackable);
             for (int i = 0; i < attackables.Length; i++)
             {
+                sound.playSound("slashHit");
                 if(attackables[i].CompareTag("Enemy"))
                 {
                     EnemyPatrol enemy = attackables[i].GetComponent<EnemyPatrol>();
@@ -135,6 +158,9 @@ public class MyrController : MonoBehaviour
                     attackables[i].GetComponent<breakable>().health -= 1;
                 }
             }
+
+            if(attackables.Length<=0)
+                sound.playSound("slash");
         }
         else
         {
@@ -142,14 +168,14 @@ public class MyrController : MonoBehaviour
         }
 
 
-
+        //wall jump part
         if(facingRight)
         {
-            hitWall = Physics2D.Raycast(transform.position, new Vector2(rayDistance, 0), rayDistance, ground);
+            hitWall = Physics2D.Raycast(transform.position, new Vector2(rayDistance, 0), rayDistance, wall);
         }
         else
         {
-            hitWall = Physics2D.Raycast(transform.position, new Vector2(-rayDistance, 0), rayDistance, ground);
+            hitWall = Physics2D.Raycast(transform.position, new Vector2(-rayDistance, 0), rayDistance, wall);
         }
 
 
@@ -169,6 +195,41 @@ public class MyrController : MonoBehaviour
             //rb2d.AddForce(forceToAdd, ForceMode2D.Impulse);
 
         }
+
+        //dash part
+        if(dashDirection == 0)
+        {
+            if(Input.GetKeyDown("l"))
+            {
+                if(facingRight)
+                    Instantiate(dashEffectRight, transform.position, Quaternion.identity);
+                else
+                    Instantiate(dashEffectLeft, transform.position, Quaternion.identity);
+                dashDirection = 1;
+                sound.playSound("dash");
+            }
+        }
+        else
+        {
+            if (dashTime <= 0)
+            {
+                dashTime = startDashTime;
+                rb2d.velocity = Vector2.zero;
+                dashDirection = 0;
+                anime.SetBool("dashing", false);
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+                if (facingRight)
+                    rb2d.velocity = Vector2.right * dashSpeed;
+                else
+                    rb2d.velocity = Vector2.left * dashSpeed;
+                anime.SetBool("dashing", true);
+                
+            }
+        }
+
     }
 
     void OnDrawGizmosSelected()

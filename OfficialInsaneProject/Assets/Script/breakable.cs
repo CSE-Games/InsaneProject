@@ -11,6 +11,7 @@ public class breakable : MonoBehaviour
         if(health<=0)
         {
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            GameObject.Find("Sound Effects").GetComponent<SoundEffects>().playSound("destruction");
             Destroy(gameObject);
         }
     }

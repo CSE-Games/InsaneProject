@@ -52,19 +52,23 @@ public class MyrController : MonoBehaviour
     private int dashDirection;
     public GameObject dashEffectLeft;
     public GameObject dashEffectRight;
-    public Transform effectPos;
-
 
     SoundEffects sound;
+
+    private float dazedTime;
+    public float startDazedTime;
+    private bool dazed;
+
     // Start is called before the first frame update
     void Start()
     {
         anime = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        dashTime = startDashTime;
         sound = GameObject.Find("Sound Effects").GetComponent<SoundEffects>();
 
+        dashTime = startDashTime;
+        dazed = false;
         Physics.IgnoreLayerCollision(8, 10);
     }
 
@@ -230,6 +234,11 @@ public class MyrController : MonoBehaviour
             }
         }
 
+        if (dazedTime > 0)
+            dazedTime -= Time.deltaTime;
+        else
+            dazed = false;
+
     }
 
     void OnDrawGizmosSelected()
@@ -243,7 +252,35 @@ public class MyrController : MonoBehaviour
         healthUI health_ui = GameObject.Find("Health").GetComponent<healthUI>();
         health_ui.loseLife(health - 1);
         health -= damage;
+
+        spriteRenderer.color = Color.red;
+        dazedTime = startDazedTime;
+        if(health>0)
+        {
+            Invoke("resetMaterial", 0.2f);
+        }
+    }
+
+    void resetMaterial()
+    {
+        spriteRenderer.color = Color.white;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(dazedTime>0 && !dazed)
+        {
+            if (collision.CompareTag("Enemy"))
+            {
+                Debug.Log(dazedTime);
+                Vector2 difference = transform.position - collision.transform.position;
+                rb2d.AddForce(new Vector2(difference.x, 0) * 3000);
+            }
+            dazed = true;
+        }
         
     }
+
+
 }
 

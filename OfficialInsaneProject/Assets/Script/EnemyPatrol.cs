@@ -18,8 +18,7 @@ public class EnemyPatrol : MonoBehaviour
     private float dazedTime;
     public float startDazedTime;
 
-    private float canAttack = 0f;
-    public float attackDelay;
+    
 
     public GameObject destroyEffect;
 
@@ -53,7 +52,8 @@ public class EnemyPatrol : MonoBehaviour
 
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        RaycastHit2D obstacleInfo = Physics2D.Raycast(obstacleDetection.position, Vector2.left, distance);
+        RaycastHit2D obstacleInfo = Physics2D.Raycast(obstacleDetection.position, -transform.right, distance);
+        Debug.DrawRay(obstacleDetection.position, -transform.right, Color.green);
         if (groundInfo.collider == false || (obstacleInfo.collider == true && !obstacleInfo.collider.gameObject.tag.Equals("Player")))
         {
             if(movingLeft == true)
@@ -66,14 +66,6 @@ public class EnemyPatrol : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingLeft = true;
             }
-        }
-        
-        if(obstacleInfo.collider == true && obstacleInfo.collider.gameObject.tag.Equals("Player") && Time.time>canAttack)
-        {
-            MyrController player = obstacleInfo.collider.gameObject.GetComponent<MyrController>();
-            player.takeDamage(1);
-            canAttack = Time.time + attackDelay;
-
         }
 
     }

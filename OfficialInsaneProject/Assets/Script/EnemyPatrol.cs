@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     public float speed;
+    private float originalSpeed;
     public float distance;
 
     private bool movingLeft = true;
@@ -25,7 +26,7 @@ public class EnemyPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(10, 14);
+        originalSpeed = speed;
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class EnemyPatrol : MonoBehaviour
 
         if(dazedTime<=0)
         {
-            speed = 5;
+            speed = originalSpeed;
         }
         else
         {

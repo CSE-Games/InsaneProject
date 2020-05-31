@@ -36,7 +36,6 @@ public class Boss : MonoBehaviour
             encounter = false;
         }
 
-        Debug.Log(encounter);
         if (encounter)
             transform.Translate(Vector2.left * rollSpeed * Time.deltaTime);
         

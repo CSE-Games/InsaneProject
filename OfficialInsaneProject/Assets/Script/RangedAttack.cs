@@ -7,7 +7,8 @@ public class RangedAttack : MonoBehaviour
 {
     public GameObject projectile;
     public Transform shotPoint;
-    //public int rounds;
+    public int ammo;
+    public GameObject UI;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -25,10 +26,12 @@ public class RangedAttack : MonoBehaviour
 
         if (Input.GetKey("k"))
         {
-            if (timeBtwShots <= 0)
+            if (timeBtwShots <= 0 && ammo>0)
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
+                ammo--;
+                UI.GetComponent<Ammo_UI>().updateAmmo(ammo);
                 sound.playSound("rangedAttack");
             }
         }
@@ -36,5 +39,11 @@ public class RangedAttack : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
+    }
+
+    public void refillAmmo()
+    {
+        ammo++;
+        UI.GetComponent<Ammo_UI>().updateAmmo(ammo);
     }
 }

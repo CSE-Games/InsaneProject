@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class healthBonus : MonoBehaviour
+public class Bonus : MonoBehaviour
 {
+    public GameObject Myr;
+    public int type;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,18 @@ public class healthBonus : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void bonus()
+    {
+        if(type == 0)
+        {
+            Myr.gameObject.GetComponent<MyrController>().gainHealth();
+        }
+
+        if (type == 1)
+        {
+            Myr.gameObject.GetComponent<RangedAttack>().refillAmmo();
+        }
     }
 }

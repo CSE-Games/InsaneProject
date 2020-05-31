@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: f028a3e2456e817439cba200e5c1e884
   - enabled: 0
-    path: Assets/Scenes/Level 1 with Platforms.unity
+    path: 
     guid: 2339d256025d229429a9800403e7b6c8
   - enabled: 1
     path: Assets/Scenes/Opening Scene (Forest Scene).unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 766359527201d6c42a312c94801e4276
+  - enabled: 1
+    path: Assets/Scenes/INSANEexe.unity
+    guid: 6eeb1a5a3ff25b341b912de84b45acac
   m_configObjects: {}

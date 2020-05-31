@@ -21,4 +21,9 @@ public class healthUI : MonoBehaviour
     {
         gameObject.transform.GetChild(ui_life).GetComponent<Image>().color = Color.grey;
     }
+
+    public void gainLife(int ui_life)
+    {
+        gameObject.transform.GetChild(ui_life).GetComponent<Image>().color = Color.white;
+    }
 }

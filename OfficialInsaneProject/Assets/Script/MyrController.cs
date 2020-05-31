@@ -59,6 +59,8 @@ public class MyrController : MonoBehaviour
     public float startDazedTime;
     private bool dazed;
 
+    public bool wallJumpActivator;
+    public bool dashActivator;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,7 @@ public class MyrController : MonoBehaviour
 
         dashTime = startDashTime;
         dazed = false;
+
         Physics.IgnoreLayerCollision(8, 10);
     }
 
@@ -84,7 +87,8 @@ public class MyrController : MonoBehaviour
             canvas.transform.GetChild(2).gameObject.GetComponent<Fading>().Fade();
         }
 
-        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
+            Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")))
         {
             IsGrounded = true;
             currentYPosition = transform.position.y;
@@ -173,66 +177,75 @@ public class MyrController : MonoBehaviour
 
 
         //wall jump part
-        if(facingRight)
+        if(wallJumpActivator)
         {
-            hitWall = Physics2D.Raycast(transform.position, new Vector2(rayDistance, 0), rayDistance, wall);
-        }
-        else
-        {
-            hitWall = Physics2D.Raycast(transform.position, new Vector2(-rayDistance, 0), rayDistance, wall);
-        }
-
-
-        if (hitWall && !IsGrounded && Math.Abs(transform.position.y - currentYPosition) >= canWallSlide)
-        {
-            isWallSliding = true;
-            //canJump = Time.time + jumpDelay;
-        } else
-        {
-            isWallSliding = false;
-        }
-
-        if(isWallSliding)
-        {
-            rb2d.velocity = new Vector2(0, -wallSlideSpeed);
-            //Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * 1, wallHopDirection.y * wallHopForce);
-            //rb2d.AddForce(forceToAdd, ForceMode2D.Impulse);
-
-        }
-
-        //dash part
-        if(dashDirection == 0)
-        {
-            if(Input.GetKeyDown("l"))
+            if (facingRight)
             {
-                if(facingRight)
-                    Instantiate(dashEffectRight, transform.position, Quaternion.identity);
-                else
-                    Instantiate(dashEffectLeft, transform.position, Quaternion.identity);
-                dashDirection = 1;
-                sound.playSound("dash");
-            }
-        }
-        else
-        {
-            if (dashTime <= 0)
-            {
-                dashTime = startDashTime;
-                rb2d.velocity = Vector2.zero;
-                dashDirection = 0;
-                anime.SetBool("dashing", false);
+                hitWall = Physics2D.Raycast(transform.position, new Vector2(rayDistance, 0), rayDistance, wall);
             }
             else
             {
-                dashTime -= Time.deltaTime;
-                if (facingRight)
-                    rb2d.velocity = Vector2.right * dashSpeed;
-                else
-                    rb2d.velocity = Vector2.left * dashSpeed;
-                anime.SetBool("dashing", true);
-                
+                hitWall = Physics2D.Raycast(transform.position, new Vector2(-rayDistance, 0), rayDistance, wall);
+            }
+
+
+            if (hitWall && !IsGrounded && Math.Abs(transform.position.y - currentYPosition) >= canWallSlide)
+            {
+                isWallSliding = true;
+                //canJump = Time.time + jumpDelay;
+            }
+            else
+            {
+                isWallSliding = false;
+            }
+
+            if (isWallSliding)
+            {
+                rb2d.velocity = new Vector2(0, -wallSlideSpeed);
+                //Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * 1, wallHopDirection.y * wallHopForce);
+                //rb2d.AddForce(forceToAdd, ForceMode2D.Impulse);
+
             }
         }
+        
+
+        //dash part
+        if(dashActivator)
+        {
+            if (dashDirection == 0)
+            {
+                if (Input.GetKeyDown("l"))
+                {
+                    if (facingRight)
+                        Instantiate(dashEffectRight, transform.position, Quaternion.identity);
+                    else
+                        Instantiate(dashEffectLeft, transform.position, Quaternion.identity);
+                    dashDirection = 1;
+                    sound.playSound("dash");
+                }
+            }
+            else
+            {
+                if (dashTime <= 0)
+                {
+                    dashTime = startDashTime;
+                    rb2d.velocity = Vector2.zero;
+                    dashDirection = 0;
+                    anime.SetBool("dashing", false);
+                }
+                else
+                {
+                    dashTime -= Time.deltaTime;
+                    if (facingRight)
+                        rb2d.velocity = Vector2.right * dashSpeed;
+                    else
+                        rb2d.velocity = Vector2.left * dashSpeed;
+                    anime.SetBool("dashing", true);
+
+                }
+            }
+        }
+        
 
         if (dazedTime > 0)
             dazedTime -= Time.deltaTime;

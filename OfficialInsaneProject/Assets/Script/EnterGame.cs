@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 public class EnterGame : MonoBehaviour
 {
     public string scene;
-    public void changeScene(string scene)
+    private void Update()
     {
-        SceneManager.LoadScene(scene);
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene(scene);
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void changeScene()
     {
-        if(collision.gameObject.layer == 8)
-        {
-            changeScene(scene);
-        }
+        SceneManager.LoadScene(scene);
     }
 }

@@ -1089,7 +1089,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1620075170}
         m_MethodName: changeScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc87ad3ae17a974eb820e3894d834bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 
+  scene: Opening Texts
 --- !u!1 &2095368374
 GameObject:
   m_ObjectHideFlags: 0

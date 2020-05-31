@@ -25,7 +25,7 @@ public class EnemyPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics.IgnoreLayerCollision(10, 14);
     }
 
     // Update is called once per frame
@@ -78,4 +78,6 @@ public class EnemyPatrol : MonoBehaviour
         Debug.Log("Damage Taken! "+count);
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
+
+    
 }

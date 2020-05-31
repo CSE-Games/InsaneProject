@@ -32,5 +32,17 @@ public class Bonus : MonoBehaviour
             Myr.gameObject.GetComponent<RangedAttack>().refillAmmo();
             text.GetComponent<TextMesh>().text = "+AMMO";
         }
+
+        if (type == 2)
+        {
+            Myr.gameObject.GetComponent<MyrController>().wallJumpActivator = true;
+            text.GetComponent<TextMesh>().text = "WALL JUMP ABILITY";
+        }
+
+        if (type == 3)
+        {
+            Myr.gameObject.GetComponent<MyrController>().dashActivator = true;
+            text.GetComponent<TextMesh>().text = "DASH ABILITY";
+        }
     }
 }

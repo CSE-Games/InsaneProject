@@ -18,7 +18,7 @@ public class TextPopUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        transform.position += new Vector3(0, 0.3f) * Time.deltaTime;
         dissapearTimer -= Time.deltaTime;
         if(dissapearTimer<0)
         {

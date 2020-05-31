@@ -264,12 +264,12 @@ public class MyrController : MonoBehaviour
     public void gainHealth()
     {
         healthUI health_ui = GameObject.Find("Health").GetComponent<healthUI>();
-        health_ui.gainLife(health);
-        health += damage;
+        
 
-        if(health>5)
+        if(health<5)
         {
-            health = 5;
+            health_ui.gainLife(health);
+            health += damage;
         }
     }
 

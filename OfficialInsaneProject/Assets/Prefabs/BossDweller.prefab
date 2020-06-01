@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5611207784627532595}
   - component: {fileID: 5611207784627532594}
   - component: {fileID: 7315774503819493063}
+  - component: {fileID: 4504532299799611902}
   m_Layer: 10
   m_Name: BossDweller
   m_TagString: Enemy
@@ -194,6 +195,25 @@ MonoBehaviour:
   playerDetection3: {fileID: 7001654638626279328}
   distance: 3
   rollSpeed: 10
+--- !u!95 &4504532299799611902
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5611207784627532593}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a5158ad692552a47aaf953af733cc23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5611207784719252301
 GameObject:
   m_ObjectHideFlags: 0

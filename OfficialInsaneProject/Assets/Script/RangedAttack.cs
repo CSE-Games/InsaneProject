@@ -43,7 +43,7 @@ public class RangedAttack : MonoBehaviour
 
     public void refillAmmo()
     {
-        ammo+=3;
+        ammo+=5;
         UI.GetComponent<Ammo_UI>().updateAmmo(ammo);
     }
 }

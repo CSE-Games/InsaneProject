@@ -40,6 +40,12 @@ public class Portal : MonoBehaviour
             {
                 collision.transform.position = new Vector2(2.11f, -60.03f);
             }
+
+            if (portalNumber == 4)
+            {
+                collision.transform.position = new Vector2(-41.89f, -82.53f);
+            }
         }
     }
 }
+ 

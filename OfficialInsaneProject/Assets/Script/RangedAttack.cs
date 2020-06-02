@@ -24,7 +24,7 @@ public class RangedAttack : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey("k"))
+        if (Input.GetMouseButtonDown(1))
         {
             if (timeBtwShots <= 0 && ammo>0)
             {

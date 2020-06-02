@@ -26,6 +26,7 @@ public class PatrolAttacks : MonoBehaviour
             MyrController player = collision.gameObject.GetComponent<MyrController>();
             player.takeDamage(damage);
             canAttack = Time.time + attackDelay;
+            gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("AtkTrigger");
         }
 
     }

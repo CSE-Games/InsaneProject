@@ -19,20 +19,21 @@ public class EnemyPatrol : MonoBehaviour
     private float dazedTime;
     public float startDazedTime;
 
-    
 
+    private Animator anime;
     public GameObject destroyEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         originalSpeed = speed;
+        anime = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         if (health<=0)
         {
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
@@ -77,7 +78,8 @@ public class EnemyPatrol : MonoBehaviour
         count++;
         health -= damage;
         Debug.Log("Damage Taken! "+count);
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        anime.SetTrigger("AtkTrigger");
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     

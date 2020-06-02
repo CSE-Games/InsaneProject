@@ -146,7 +146,7 @@ public class MyrController : MonoBehaviour
         }
 
         //attacking part
-        if (Input.GetKeyDown(KeyCode.Return) && Time.time > canAttack && dashDirection == 0)
+        if (Input.GetMouseButtonDown(0) && Time.time > canAttack && dashDirection == 0)
         {
             anime.SetBool("attacking", true);
             canAttack = Time.time + attackDelay;
@@ -214,7 +214,7 @@ public class MyrController : MonoBehaviour
         {
             if (dashDirection == 0)
             {
-                if (Input.GetKeyDown("l"))
+                if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     if (facingRight)
                         Instantiate(dashEffectRight, transform.position, Quaternion.identity);

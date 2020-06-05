@@ -22,7 +22,7 @@ public class InstantDeath : MonoBehaviour
         {
             if(collision.gameObject.CompareTag("Player"))
             {
-                collision.gameObject.GetComponent<MyrController>().health = 0;
+                collision.gameObject.GetComponent<MyrController>().health = -3;
             }
         }
     }

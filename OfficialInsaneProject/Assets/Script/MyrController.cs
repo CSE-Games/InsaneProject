@@ -16,6 +16,12 @@ public class MyrController : MonoBehaviour
     Transform groundCheck;
 
     [SerializeField]
+    Transform groundCheckL;
+
+    [SerializeField]
+    Transform groundCheckR;
+
+    [SerializeField]
     private float runSpeed = 5f;
 
     [SerializeField]
@@ -24,6 +30,7 @@ public class MyrController : MonoBehaviour
     private Animator anime;
     private float canJump = 0f;
     public float jumpDelay;
+    public int extraJump;
 
     public Transform attackPos;
     public float attackRange;
@@ -88,7 +95,9 @@ public class MyrController : MonoBehaviour
         }
 
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
-            Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")))
+           (Physics2D.Linecast(transform.position, groundCheckL.position, 1 << LayerMask.NameToLayer("Ground")) ||
+           (Physics2D.Linecast(transform.position, groundCheckR.position, 1 << LayerMask.NameToLayer("Ground")) ||
+            Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")))))
         {
             IsGrounded = true;
             currentYPosition = transform.position.y;
@@ -121,13 +130,24 @@ public class MyrController : MonoBehaviour
         }
 
         //jumping part
-        if ((Input.GetKey("space") && IsGrounded && Time.time > canJump) || (Input.GetKey("space") && isWallSliding))
+        if ((Input.GetKeyDown("space") && IsGrounded && Time.time > canJump) || (Input.GetKey("space") && isWallSliding))
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
             canJump = Time.time + jumpDelay;
             anime.SetTrigger("takeOff");
             sound.playSound("jump");
         }
+
+        if(IsGrounded == true)
+        {
+            extraJump = 1;
+        }
+        if (Input.GetKeyDown("space") && extraJump > 0) {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
+            extraJump--;
+        }
+            
+        
 
         if(rb2d.velocity.y<=0 && !IsGrounded)
         {
@@ -214,7 +234,7 @@ public class MyrController : MonoBehaviour
         {
             if (dashDirection == 0)
             {
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     if (facingRight)
                         Instantiate(dashEffectRight, transform.position, Quaternion.identity);

@@ -97,7 +97,8 @@ public class MyrController : MonoBehaviour
         if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
            (Physics2D.Linecast(transform.position, groundCheckL.position, 1 << LayerMask.NameToLayer("Ground")) ||
            (Physics2D.Linecast(transform.position, groundCheckR.position, 1 << LayerMask.NameToLayer("Ground")) ||
-            Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")))))
+           (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Breakables")) ||
+            Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Platforms"))))))
         {
             IsGrounded = true;
             currentYPosition = transform.position.y;
@@ -140,7 +141,7 @@ public class MyrController : MonoBehaviour
 
         if(IsGrounded == true)
         {
-            extraJump = 1;
+            extraJump = 2;
         }
         if (Input.GetKeyDown("space") && extraJump > 0) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);

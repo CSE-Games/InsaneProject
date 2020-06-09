@@ -80,7 +80,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891957848588094547}
-  m_Text: +LIFE
+  m_Text: WALL JUMP ABILITY
   m_OffsetZ: 0
   m_CharacterSize: 0.4
   m_LineSpacing: 1

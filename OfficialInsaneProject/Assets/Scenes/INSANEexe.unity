@@ -544,6 +544,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -633,6 +639,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -6332,6 +6344,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -22400,6 +22418,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -28304,6 +28328,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -29451,6 +29481,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -30482,6 +30518,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -38589,6 +38631,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: type
@@ -39875,6 +39923,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: type
@@ -47509,6 +47563,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -47851,6 +47911,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -48034,6 +48100,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -53362,6 +53434,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -67918,6 +67996,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: type
@@ -68170,6 +68254,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -68554,6 +68644,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -82072,6 +82168,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: type
@@ -82191,6 +82293,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -87298,6 +87406,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -92913,6 +93027,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -94205,6 +94325,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr
@@ -99309,6 +99435,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: type
@@ -101161,6 +101293,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: type
@@ -101351,6 +101489,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379200849}
     m_Modifications:
+    - target: {fileID: 3978611711785613536, guid: 00024a1015d983f41832ef13b33795d4,
+        type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 879333015458112349, guid: 78ea82050a66f3540a04154ed657aeb0,
+        type: 3}
     - target: {fileID: 3978611711785613537, guid: 00024a1015d983f41832ef13b33795d4,
         type: 3}
       propertyPath: Myr

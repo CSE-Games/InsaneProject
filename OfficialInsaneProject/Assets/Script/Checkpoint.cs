@@ -11,11 +11,11 @@ public class Checkpoint : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
 
-    // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Player Checkpoint Reached");
             gm.lastCheckPointPos = transform.position;
         }
     }

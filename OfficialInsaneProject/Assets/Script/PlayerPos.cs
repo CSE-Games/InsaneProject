@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerPos : MonoBehaviour
 {
     private GameMaster gm;
-
+    public GameObject myr;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,9 @@ public class PlayerPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        // THIS PART IS OPTIONAL
+        // IF WE WANT TO IMPLEMENT A SUICIDE BUTTON (K) if (Input.GetKeyDown(KeyCode.K))
+        if (myr.GetComponent<MyrController>().health == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

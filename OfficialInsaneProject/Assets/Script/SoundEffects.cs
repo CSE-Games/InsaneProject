@@ -7,6 +7,7 @@ public class SoundEffects : MonoBehaviour
     public AudioClip myrJump, myrLand, myrSlash, myrDash, myrSlashHit, myrRangedAttack, enemyDies;
     public AudioClip projectileDies, objectDestroyed;
     public AudioSource audSrc;
+    public AudioSource musicSrc;
     public float effectsVolume;
     // Start is called before the first frame update
     void Start()

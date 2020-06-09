@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundEffects : MonoBehaviour
 {
-    public AudioClip myrJump, myrLand, myrSlash, myrDash, myrSlashHit, myrRangedAttack;
+    public AudioClip myrJump, myrLand, myrSlash, myrDash, myrSlashHit, myrRangedAttack, enemyDies;
     public AudioClip projectileDies, objectDestroyed;
     public AudioSource audSrc;
     public float effectsVolume;
@@ -47,6 +47,9 @@ public class SoundEffects : MonoBehaviour
                 break;
             case "destruction":
                 audSrc.PlayOneShot(objectDestroyed, effectsVolume);
+                break;
+            case "enemydies":
+                audSrc.PlayOneShot(enemyDies, effectsVolume);
                 break;
         }
     }

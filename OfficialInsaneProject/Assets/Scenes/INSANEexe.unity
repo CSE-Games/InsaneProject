@@ -11305,7 +11305,7 @@ Transform:
   - {fileID: 1232419718}
   - {fileID: 1969129730}
   m_Father: {fileID: 1234006763}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &135832627 stripped
 Transform:
@@ -30797,11 +30797,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469235984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.93681, y: 32.535095, z: -2.258789}
-  m_LocalScale: {x: 1.5384616, y: 1.7527832, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1234006763}
-  m_RootOrder: 8
+  m_Father: {fileID: 1849128519}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &469235986
 MonoBehaviour:
@@ -30822,12 +30822,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469235984}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f39348d84fa481d4a8f5304ea1755edb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.139
   m_Pitch: 0.82
   Loop: 1
   Mute: 0
@@ -40321,8 +40321,8 @@ MonoBehaviour:
   wall:
     serializedVersion: 2
     m_Bits: 2048
-  canWallSlide: 0.7
-  wallSlideSpeed: 1.5
+  canWallSlide: 1
+  wallSlideSpeed: 0
   dashSpeed: 30
   startDashTime: 0.2
   dashEffectLeft: {fileID: 4217372485383809277, guid: a91ed99820039874fa3166049e44b4fc,
@@ -66366,7 +66366,6 @@ Transform:
   - {fileID: 1493736265}
   - {fileID: 786951612}
   - {fileID: 1849128519}
-  - {fileID: 469235985}
   - {fileID: 135200122}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -98992,7 +98991,7 @@ MonoBehaviour:
   objectDestroyed: {fileID: 8300000, guid: c799b21c6567cbd42b4be73f12e36c2c, type: 3}
   audSrc: {fileID: 1849128518}
   musicSrc: {fileID: 0}
-  effectsVolume: 0.46
+  effectsVolume: 0.66
 --- !u!82 &1849128518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -99005,7 +99004,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f39348d84fa481d4a8f5304ea1755edb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.234
+  m_Volume: 0.153
   m_Pitch: 0.82
   Loop: 1
   Mute: 0
@@ -99099,7 +99098,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -50.93681, y: 32.535095, z: -2.258789}
   m_LocalScale: {x: 1.5384616, y: 1.7527832, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 469235985}
   m_Father: {fileID: 1234006763}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99127,7 +99127,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d16eb80b53ba8f54f991fce9046bfa43, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.573
+  m_Volume: 0.428
   m_Pitch: 1
   Loop: 1
   Mute: 0

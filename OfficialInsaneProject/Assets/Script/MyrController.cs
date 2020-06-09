@@ -135,8 +135,8 @@ public class MyrController : MonoBehaviour
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
             canJump = Time.time + jumpDelay;
-            anime.SetTrigger("takeOff");
-            sound.playSound("jump");
+            anime.SetTrigger("takeOff" );
+            
         }
 
         if(IsGrounded == true)
@@ -146,6 +146,7 @@ public class MyrController : MonoBehaviour
         if (Input.GetKeyDown("space") && extraJump > 0) {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
             extraJump--;
+            sound.playSound("jump");
         }
             
         

@@ -22,6 +22,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private Animator anime;
     public GameObject destroyEffect;
+    public GameObject slashHit;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class EnemyPatrol : MonoBehaviour
         if(dazedTime<=0)
         {
             speed = originalSpeed;
+            
         }
         else
         {
@@ -79,6 +81,7 @@ public class EnemyPatrol : MonoBehaviour
         health -= damage;
         Debug.Log("Damage Taken! "+count);
         anime.SetTrigger("AtkTrigger");
+        Instantiate(slashHit, transform.position, Quaternion.identity);
         //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
